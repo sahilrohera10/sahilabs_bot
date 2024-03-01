@@ -36,6 +36,7 @@ const challenges = [
 
 client.on("messageCreate", (message) => {
   if (message.author.bot) return;
+
   console.log(message.content);
   if (message.content.toLowerCase() === "hello") {
     message.reply({
@@ -67,6 +68,10 @@ client.on("messageCreate", (message) => {
   if (message.content.toLowerCase() === "thank you") {
     message.reply({
       content: `Thank You ${message.author} for interacting with me!!`,
+    });
+  } else {
+    message.reply({
+      content: "Sorry I didn't understand that command!",
     });
   }
 });
