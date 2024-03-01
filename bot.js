@@ -41,16 +41,14 @@ client.on("messageCreate", (message) => {
   }
 
   console.log(message.content);
-  if (!message.author.bot && message.content.toLowerCase() === "hello") {
+  if (message.content.toLowerCase() === "hello") {
     message.reply({
       content: `Hello ${message.author}, Feel free to interact with me with the following commands 
       !challenge -> Provide you the challenge for today.
       !list -> Provide you the list of all the challenges.`,
     });
-  } else if (
-    !message.author.bot &&
-    message.content.toLowerCase() === "!challenge"
-  ) {
+  }
+  if (message.content.toLowerCase() === "!challenge") {
     const n = Math.floor(Math.random() * challenges.length);
     const challenge = challenges[n];
 
@@ -58,7 +56,8 @@ client.on("messageCreate", (message) => {
     message.reply({
       content: `${challenge.text}, go to -> ${challenge.link}`,
     });
-  } else if (!message.author.bot && message.content.toLowerCase() === "!list") {
+  }
+  if (message.content.toLowerCase() === "!list") {
     const challengeList = challenges
       .map((challenge) => `${challenge.text}, go to -> ${challenge.link}`)
       .join("\n");
@@ -67,16 +66,10 @@ client.on("messageCreate", (message) => {
     message.reply({
       content: `List of Challenges:\n${challengeList}`,
     });
-  } else if (
-    !message.author.bot &&
-    message.content.toLowerCase() === "thank you"
-  ) {
+  }
+  if (message.content.toLowerCase() === "thank you") {
     message.reply({
       content: `Thank You ${message.author} for interacting with me!!`,
-    });
-  } else {
-    message.reply({
-      content: "Sorry I didn't understand that command!",
     });
   }
 });
