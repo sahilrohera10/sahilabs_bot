@@ -44,8 +44,7 @@ client.on("messageCreate", (message) => {
       !challenge -> Provide you the challenge for today.
       !list -> Provide you the list of all the challenges.`,
     });
-  }
-  if (message.content.toLowerCase() === "!challenge") {
+  } else if (message.content.toLowerCase() === "!challenge") {
     const n = Math.floor(Math.random() * challenges.length);
     const challenge = challenges[n];
 
@@ -53,9 +52,7 @@ client.on("messageCreate", (message) => {
     message.reply({
       content: `${challenge.text}, go to -> ${challenge.link}`,
     });
-  }
-
-  if (message.content.toLowerCase() === "!list") {
+  } else if (message.content.toLowerCase() === "!list") {
     const challengeList = challenges
       .map((challenge) => `${challenge.text}, go to -> ${challenge.link}`)
       .join("\n");
@@ -64,8 +61,7 @@ client.on("messageCreate", (message) => {
     message.reply({
       content: `List of Challenges:\n${challengeList}`,
     });
-  }
-  if (message.content.toLowerCase() === "thank you") {
+  } else if (message.content.toLowerCase() === "thank you") {
     message.reply({
       content: `Thank You ${message.author} for interacting with me!!`,
     });
