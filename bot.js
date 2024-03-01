@@ -35,7 +35,7 @@ const challenges = [
 ];
 
 client.on("messageCreate", (message) => {
-  console.log(message.author);
+  if (message.author.username === "Sahilabs_bot") return;
 
   console.log(message.content);
   if (message.content.toLowerCase() === "hello") {
