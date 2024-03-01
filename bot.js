@@ -69,7 +69,7 @@ client.on("messageCreate", (message) => {
   }
   if (message.content.toLowerCase() === "thank you") {
     message.reply({
-      content: `Thank You ${message.author} for interacting with me!!`,
+      content: `Yours Welcome ${message.author} and Thank you for interacting with me!!`,
     });
   }
 });
